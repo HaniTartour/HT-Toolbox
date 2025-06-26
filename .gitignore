@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.vscode/
+*.code-workspace
+*.bak
+*.backup
+*.DYN_Backup*
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+*.tmp
