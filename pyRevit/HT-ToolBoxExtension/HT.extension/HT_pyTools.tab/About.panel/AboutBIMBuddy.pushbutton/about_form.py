@@ -134,6 +134,4 @@ class AboutBIMBuddyForm(Form):
         
     def check_updates(self, sender, args):
         # Replace with your real GitHub release or repo URL
-        update_url = "https://github.com/HaniTartour/HT-Toolbox/releases"
-        webbrowser.open(update_url)
-
+        webbrowser.open("https://github.com/HaniTartour/HT-Toolbox/releases/latest")

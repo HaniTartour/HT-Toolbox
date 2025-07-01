@@ -1,0 +1,25 @@
+# 🧾 BIMBuddy Changelog
+
+All notable changes to this project will be documented in this file.
+
+---
+
+## [v1.1.0] - YYYY-MM-DD
+### 🚀 Added
+- Feature 1
+- Feature 2
+
+### 🐞 Fixed
+- Bug 1
+- Bug 2
+
+### 🧼 Changed
+- UX updates or renamed buttons
+
+---
+
+## [v1.0.0] - 2025-07-01
+### 🚀 Added
+- First public release of BIMBuddy (HT-Toolbox v1.0.0)
+- About panel with logo, version, and GitHub link
+- “Check for Updates” + “What’s New” buttons
