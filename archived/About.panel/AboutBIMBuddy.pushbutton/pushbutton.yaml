@@ -1,0 +1,8 @@
+tooltip: "Learn more about BIMBuddy"
+long_description: |
+  BIMBuddy is your Revit companion — a collection of beginner-friendly tools
+  powered by pyRevit, Python, and Dynamo.
+
+  Click to learn more or visit the GitHub page.
+author: Hani Tartour
+help_url: https://github.com/HaniTartour/HT-Toolbox

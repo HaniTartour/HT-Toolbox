@@ -1,0 +1,6 @@
+BIMBuddy Toolkit - Changelog
+
+v1.0.0
+- Initial release on 01/07/2025
+- Added About dialog
+- GitHub link and logo branding
