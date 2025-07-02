@@ -27,7 +27,7 @@ class AboutBIMBuddyForm(Form):
         self.MaximizeBox = False
   
         # BIMBuddy Logo (if available)
-        logo_path = os.path.join(os.path.dirname(__file__), "button.png")
+        logo_path = os.path.join(os.path.dirname(__file__), "icon.png")
         if os.path.exists(logo_path):
             logo = PictureBox()
             logo.Image = Image.FromFile(logo_path)
@@ -75,6 +75,8 @@ class AboutBIMBuddyForm(Form):
         footer.Location = Point(20, 170)  # Adjust if needed
         footer.AutoSize = True
         self.Controls.Add(footer)
+
+
 
         divider = Label()
         divider.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D

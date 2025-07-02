@@ -1,0 +1,3 @@
+Generates the extension.json layout by scanning all .panel folders and their pushbuttons.
+
+Use this to keep your ribbon layout up to date automatically while you build new tools.
