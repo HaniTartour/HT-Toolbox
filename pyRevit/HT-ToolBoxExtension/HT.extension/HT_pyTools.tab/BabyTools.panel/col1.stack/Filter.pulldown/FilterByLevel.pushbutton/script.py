@@ -34,23 +34,66 @@ uidoc = __revit__.ActiveUIDocument
 doc = uidoc.Document
 
 # ----------------------------
-# STEP 1 – Select Elements
+# Helper function: get level name of an element
+# ----------------------------   
+def get_element_level_name(element):
+    """
+    Attempts to extract the level name from various properties/parameters:
+    - LevelId property (default for many elements)
+    - "Reference Level" parameter (structural beams, framing)
+    - "Schedule Level" parameter (hosted families, etc.)
+    - Other fallback parameters if needed
+    
+    Returns the level name as string or None if not found.
+    """
+    try:
+        # 1. Try LevelId property (most common)
+        level_id = getattr(element, "LevelId", None)
+        if level_id and level_id != ElementId.InvalidElementId:
+            level = doc.GetElement(level_id)
+            if level:
+                return level.Name
+
+        # 2. Try "Reference Level" parameter (for beams, structural framing)
+        ref_level_param = element.LookupParameter("Reference Level")
+        if ref_level_param and ref_level_param.HasValue:
+            return ref_level_param.AsString()
+
+        # 3. Try "Schedule Level" parameter (some hosted families)
+        sched_level_param = element.LookupParameter("Schedule Level")
+        if sched_level_param and sched_level_param.HasValue:
+            return sched_level_param.AsString()
+
+        # 4. Try "Level" parameter (some families may have this as a parameter)
+        level_param = element.LookupParameter("Level")
+        if level_param and level_param.HasValue:
+            return level_param.AsString()
+
+    except Exception as ex:
+        # Optional: log or print ex for debugging
+        pass
+
+    return None  # No level found
+   
+    
+# ----------------------------
+# STEP 1 – User picks elements
 # ----------------------------
 picked_refs = uidoc.Selection.PickObjects(ObjectType.Element, "Pick elements to filter by level")
 elements = [doc.GetElement(ref) for ref in picked_refs]
 
-# Get distinct levels from picked elements
-level_dict = {}
+# Build unique list of level names from selected elements
+level_dict = {}  # key = level name, value = placeholder (we don't need ElementId here)
 for elem in elements:
-    if hasattr(elem, "LevelId") and elem.LevelId != ElementId.InvalidElementId:
-        level = doc.GetElement(elem.LevelId)
-        if level:
-            level_dict[level.Name] = level.Id
+    lvl_name = get_element_level_name(elem)
+    if lvl_name:
+        level_dict[lvl_name] = None
 
-sorted_levels = sorted(level_dict.keys())
+sorted_levels = sorted(level_dict.keys())  # for display in ComboBox
+    
 
 # ----------------------------
-# STEP 2 – Show dropdown form to filter
+# STEP 2 – UI Form for filtering
 # ----------------------------
 class LevelFilterForm(Form):
     def __init__(self):
@@ -137,32 +180,36 @@ class LevelFilterForm(Form):
 
         
 
+    # ---------------------------------------
+    # Method: apply_filter
+    # ---------------------------------------
     def apply_filter(self, sender, event):
+        # Get level selected by user
         target_level_name = self.level_combo.SelectedItem
-        target_level_id = level_dict.get(target_level_name)
 
+        # Filter elements based on level name (flexible to source)
         self.filtered_elements = [
             e for e in elements
-            if hasattr(e, "LevelId") and e.LevelId == target_level_id
+            if get_element_level_name(e) == target_level_name
         ]
 
-        # Update ListBox
+        # Update result list
         self.result_list.Items.Clear()
         for elem in self.filtered_elements:
             name = elem.Name if hasattr(elem, "Name") else elem.GetType().Name
             self.result_list.Items.Add("ID {} – {}".format(elem.Id, name))
-            
-           
 
-        # Highlight in Revit
+        # Highlight filtered elements in Revit
         if self.filtered_elements:
-            elem_ids = List[ElementId]()
-            for e in self.filtered_elements:
-                elem_ids.Add(e.Id)
+            elem_ids = List[ElementId]([e.Id for e in self.filtered_elements])
             uidoc.Selection.SetElementIds(elem_ids)
-            
+
+    # ---------------------------------------
+    # Method: close_form
+    # ---------------------------------------
     def close_form(self, sender, event):
         self.Close()
 
-# Run the form
+
+# Run the Form
 Application.Run(LevelFilterForm())
