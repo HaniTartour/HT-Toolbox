@@ -1,6 +1,14 @@
 # -*- coding: utf-8 -*-
-"""
+__title__="Pick one Object"
+__author__ = "Hani M Tartour"
+__highlight__ = "orange"
+__tooltip__ = "Hover tooltip for Pick Revit Object"
+__doc__="""v1.0.0
+----------------------
+Description:
 Pick a Revit element and display info in a custom Windows Form (BIMBuddy style)
+----------------------
+Author : Hani M  Tartour
 """
 
 import clr
@@ -94,7 +102,7 @@ class PickedElementForm(Form):
         # Add labels inside the group box
         labels = {
             "ID": elem_id,
-            "Name": elem_name,
+            "Name/Type": elem_name,
             "Category": elem_cat,
             "Level": level_name
         }
