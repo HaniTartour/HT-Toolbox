@@ -4,3 +4,12 @@
 # HT Toolbox
  pyRevit + Dynamo tools for structural workflows
 
+ ## 👋 About Me
+
+Learn more about my background, skills, and project experience:
+
+👉 [Click here to view my full About Page](https://hanitartour.github.io/about.html)
+
+Includes my story, resume, project highlights, and contact info.
+
+
