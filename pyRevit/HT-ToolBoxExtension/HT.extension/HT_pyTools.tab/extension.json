@@ -1,29 +1,34 @@
 {
   "HT_pyTools.tab": {
-    "Tools": {
-      "col1.stack": [
-        "RegenerateLayout.pushbutton"
-      ]
-    }, 
-    "PanelTest 03": {
-      "col1.stack": []
-    }, 
     "py-ExtensionManager": {
       "col1.stack": []
     }, 
-    "PanelTest 01": {
-      "col1.stack": []
+    "Dev": {
+      "col1.stack": [
+        "05RenameViewsPlus.pushbutton"
+      ]
     }, 
     "About": {
       "col1.stack": [
         "AboutBIMBuddy.pushbutton"
       ]
     }, 
+    "BabyTools": {
+      "col1.stack": []
+    }, 
+    "PanelTest 01": {
+      "col1.stack": []
+    }, 
     "PanelTest 02": {
       "col1.stack": []
     }, 
-    "BabyTools": {
+    "PanelTest 03": {
       "col1.stack": []
+    }, 
+    "Tools": {
+      "col1.stack": [
+        "RegenerateLayout.pushbutton"
+      ]
     }
   }
 }
