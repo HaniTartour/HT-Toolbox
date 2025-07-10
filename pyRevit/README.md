@@ -1,5 +1,8 @@
 [![About Me](https://img.shields.io/badge/About-Hani%20Tartour-orange?style=for-the-badge&logo=readthedocs)](https://hanitartour.github.io/about.html)
 
+<p align="left">
+  <img src="../resources/BIMBuddy Logo-2d.png" width="300" alt="BIMBuddy Logo">
+
 # 🧩 pyRevit Tools
 
 All custom pyRevit buttons live here.
