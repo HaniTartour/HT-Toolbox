@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-__title__ = "Rename Views+3"
+__title__ = "Rename Views+"
 __doc__ = """Safely rename Revit views with Find/Replace, Prefix, Suffix.
 Includes preview grid, duplicate checking, and cancel/back options.
 Author: Hani M Tartour | Version: 1.2 | Date: 2025-06-26
