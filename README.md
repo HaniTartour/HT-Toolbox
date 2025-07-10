@@ -3,9 +3,6 @@
 <p align="left">
   <img src="resources/BIMBuddy Logo-2d.png" width="300" alt="BIMBuddy Logo">
 
-
-
-
 # 🧰 HT-Toolbox – Revit Automation Toolkit by Hani Tartour
 
 Welcome to **HT-Toolbox**, a growing collection of smart, time-saving tools built for Autodesk Revit users.  
