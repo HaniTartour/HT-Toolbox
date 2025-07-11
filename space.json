@@ -1,0 +1,35 @@
+"name": "HT-Toolbox",
+{
+  "description": "A collection of custom pyRevit tools and Revit API scripts for BIM automation.",
+  "source_paths": [
+    "scripts/",
+    "docs/",
+    "tests/"
+  ],
+  "example_prompts": [
+    "Write a pyRevit script to batch rename views.",
+    "Create a tool to export schedules to Excel.",
+    "Document the installation process for a new add-in.",
+    "Suggest improvements for a Revit API script.",
+    "Generate unit tests for a pyRevit command."
+  ],
+  "supported_tools": [
+    "pyRevit",
+    "Revit API",
+    "Python"
+  ],
+  "features": [
+    "Custom pyRevit add-ins",
+    "Revit automation scripts",
+    "Documentation and usage guides",
+    "Unit testing"
+  ],
+  "contributors": [
+    {
+      "name": "Hani Tartour",
+      "role": "Owner"
+    }
+  ],
+  "version": "1.0",
+  "last_updated": "2025-07-12"
+}
